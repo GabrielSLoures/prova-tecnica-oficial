@@ -89,6 +89,10 @@ async function loadDocuments() {
                         <a href="/api/documents/${doc.id}/download" class="btn doc-card__action btn--primary" onclick="event.stopPropagation()">Download</a>
                     </div>
                 </div>
+                <div class="doc-card__hint">
+                    <span>Ver detalhes</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
             </div>
         `).join('');
 

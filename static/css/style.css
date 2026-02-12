@@ -309,6 +309,29 @@ a:hover {
     border-radius: 6px;
     font-weight: 500;
 }
+
+.doc-card__hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    transition: var(--transition);
+    padding-top: 8px;
+}
+
+.doc-card__hint svg {
+    transition: transform 0.2s ease;
+}
+
+.doc-card:hover .doc-card__hint {
+    color: var(--primary);
+}
+
+.doc-card:hover .doc-card__hint svg {
+    transform: translateX(3px);
+}
 /* Selo de Arquivo */
 
 .file-badge {
