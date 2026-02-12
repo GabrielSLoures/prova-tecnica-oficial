@@ -15,6 +15,9 @@
 
 <div class="upload-card">
     <form id="upload-form" class="upload-form">
+        <!-- File input oculto (fora da drop zone) -->
+        <input type="file" id="file-input" name="file" accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+
         <!-- Zona de Arraste -->
         <div id="drop-zone" class="drop-zone">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
@@ -23,8 +26,7 @@
                 <line x1="12" y1="3" x2="12" y2="15"></line>
             </svg>
             <p class="drop-zone__text">Arraste e solte seu arquivo aqui</p>
-            <p class="drop-zone__hint">ou clique para selecionar • PDF, JPG, PNG (máx. 16MB)</p>
-            <input type="file" id="file-input" name="file" accept=".pdf,.jpg,.jpeg,.png" required>
+            <p class="drop-zone__hint">ou <strong>clique para selecionar</strong> • PDF, JPG, PNG (máx. 16MB)</p>
         </div>
 
         <!-- Pré-visualização do Arquivo -->

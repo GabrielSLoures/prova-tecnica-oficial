@@ -110,6 +110,14 @@ function setupUploadForm() {
     const submitBtn = document.getElementById('submit-btn');
     const submitText = document.getElementById('submit-text');
 
+    let selectedFile = null;
+
+    // Clique na drop zone abre o seletor de arquivos
+    dropZone.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    // Drag and drop
     ['dragenter', 'dragover'].forEach(event => {
         dropZone.addEventListener(event, (e) => {
             e.preventDefault();
@@ -127,18 +135,22 @@ function setupUploadForm() {
     dropZone.addEventListener('drop', (e) => {
         const files = e.dataTransfer.files;
         if (files.length) {
-            fileInput.files = files;
-            showFilePreview(files[0]);
+            selectedFile = files[0];
+            showFilePreview(selectedFile);
         }
     });
 
+    // Seletor de arquivos
     fileInput.addEventListener('change', () => {
         if (fileInput.files.length) {
-            showFilePreview(fileInput.files[0]);
+            selectedFile = fileInput.files[0];
+            showFilePreview(selectedFile);
         }
     });
 
+    // Remover arquivo
     document.getElementById('remove-file').addEventListener('click', () => {
+        selectedFile = null;
         fileInput.value = '';
         filePreview.style.display = 'none';
         dropZone.style.display = 'flex';
@@ -147,7 +159,7 @@ function setupUploadForm() {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        if (!fileInput.files.length) {
+        if (!selectedFile) {
             showToast('Selecione um arquivo', 'error');
             return;
         }
@@ -156,7 +168,7 @@ function setupUploadForm() {
         submitText.textContent = 'Enviando...';
 
         const formData = new FormData();
-        formData.append('file', fileInput.files[0]);
+        formData.append('file', selectedFile);
         formData.append('title', document.getElementById('title').value);
         formData.append('description', document.getElementById('description').value);
 
