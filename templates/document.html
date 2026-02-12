@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Documento{% endblock %}
+{% block page_id %}document{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <a href="/" class="back-link">← Voltar para documentos</a>
+        <h1 class="page-title" id="doc-title">Carregando...</h1>
+    </div>
+</div>
+
+<!-- Loading -->
+<div id="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Carregando documento...</p>
+</div>
+
+<!-- Conteúdo do Documento -->
+<div id="document-content" style="display: none;">
+    <!-- Informações do Documento -->
+    <div class="doc-detail">
+        <div class="doc-detail__header">
+            <span id="doc-badge" class="file-badge">PDF</span>
+            <div class="doc-detail__meta">
+                <p id="doc-filename" class="doc-detail__filename"></p>
+                <p id="doc-date" class="doc-detail__date"></p>
+                <p id="doc-description" class="doc-detail__description"></p>
+            </div>
+            <div class="doc-detail__actions">
+                <a id="doc-view" href="#" target="_blank" class="btn btn--primary">Visualizar</a>
+                <a id="doc-download" href="#" download class="btn btn--secondary">Download</a>
+                <button id="doc-delete" class="btn btn--danger">Excluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pré-visualização da Imagem -->
+    <div id="doc-preview" class="doc-preview" style="display: none;">
+        <img id="doc-preview-img" src="" alt="" class="doc-preview__img">
+    </div>
+
+    <!-- Seção de Comentários -->
+    <div class="comments-section">
+        <h2 class="comments-title">
+            Comentários
+            <span id="comments-count" class="comments-count">0</span>
+        </h2>
+
+        <!-- Formulário de Comentários -->
+        <form id="comment-form" class="comment-form">
+            <textarea id="comment-input" class="form-input form-textarea" placeholder="Escreva um comentário..."
+                rows="3" required></textarea>
+            <button type="submit" class="btn btn--primary">Enviar Comentário</button>
+        </form>
+
+        <!-- Lista de Comentários -->
+        <div id="comments-list" class="comments-list">
+            <div class="comments-empty">
+                <p>Nenhum comentário ainda. Seja o primeiro a comentar!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block page_data %}
+const DOCUMENT_ID = "{{ document_id }}";
+{% endblock %}

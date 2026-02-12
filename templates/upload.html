@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Upload{% endblock %}
+{% block page_id %}upload{% endblock %}
+{% block nav_upload %}active{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <h1 class="page-title">Enviar Documento</h1>
+        <p class="page-subtitle">Faça upload de arquivos PDF, JPG ou PNG</p>
+    </div>
+    <a href="/" class="btn btn--secondary">← Voltar</a>
+</div>
+
+<div class="upload-card">
+    <form id="upload-form" class="upload-form">
+        <!-- Zona de Arraste -->
+        <div id="drop-zone" class="drop-zone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <p class="drop-zone__text">Arraste e solte seu arquivo aqui</p>
+            <p class="drop-zone__hint">ou clique para selecionar • PDF, JPG, PNG (máx. 16MB)</p>
+            <input type="file" id="file-input" name="file" accept=".pdf,.jpg,.jpeg,.png" required>
+        </div>
+
+        <!-- Pré-visualização do Arquivo -->
+        <div id="file-preview" class="file-preview" style="display: none;">
+            <div class="file-preview__info">
+                <span id="file-icon" class="file-badge">PDF</span>
+                <div>
+                    <p id="file-name" class="file-preview__name"></p>
+                    <p id="file-size" class="file-preview__size"></p>
+                </div>
+            </div>
+            <button type="button" id="remove-file" class="btn btn--icon" title="Remover arquivo">✕</button>
+        </div>
+
+        <!-- Título -->
+        <div class="form-group">
+            <label for="title" class="form-label">Título <span class="required">*</span></label>
+            <input type="text" id="title" name="title" class="form-input" placeholder="Digite o título do documento"
+                required>
+        </div>
+
+        <!-- Descrição -->
+        <div class="form-group">
+            <label for="description" class="form-label">Descrição <span class="optional">(opcional)</span></label>
+            <textarea id="description" name="description" class="form-input form-textarea"
+                placeholder="Adicione uma descrição para o documento" rows="3"></textarea>
+        </div>
+
+        <!-- Enviar -->
+        <button type="submit" id="submit-btn" class="btn btn--primary btn--full">
+            <span id="submit-text">Enviar Documento</span>
+        </button>
+    </form>
+</div>
+{% endblock %}
