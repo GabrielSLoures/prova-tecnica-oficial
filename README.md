@@ -80,9 +80,15 @@ SUPABASE_KEY=sua-anon-key-aqui
 ### 5. Executar a aplicação
 
 ```bash
+flask run --port 5000
+```
+Acesse: [http://localhost:5001](http://localhost:5000)
+
+ou
+
+```bash
 flask run --port 5001
 ```
-
 Acesse: [http://localhost:5001](http://localhost:5001)
 
 ## 🌐 Deploy (Render.com)
