@@ -96,29 +96,6 @@ Acesse: [http://localhost:5001](http://localhost:5001)
 5. Adicione as variáveis de ambiente (`SUPABASE_URL` e `SUPABASE_KEY`)
 6. Deploy!
 
-## 📁 Estrutura do Projeto
-
-```
-ProvaParaEstagio/
-├── app.py                  # Backend Flask (rotas da API)
-├── requirements.txt        # Dependências Python
-├── setup.sql               # Script de criação das tabelas
-├── Procfile                # Configuração para deploy
-├── .env.example            # Template de variáveis de ambiente
-├── .gitignore              # Arquivos ignorados pelo Git
-├── README.md               # Este arquivo
-├── static/
-│   ├── css/
-│   │   └── style.css       # Estilos da aplicação
-│   └── js/
-│       └── app.js          # Lógica do frontend
-└── templates/
-    ├── base.html            # Template base (layout)
-    ├── index.html           # Listagem de documentos
-    ├── upload.html          # Formulário de upload
-    └── document.html        # Detalhes e comentários
-```
-
 ## ⚠️ Observações e Limitações
 
 - **Sem autenticação**: Conforme especificado, não há controle de acesso
